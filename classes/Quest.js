@@ -1,13 +1,8 @@
 class Quest {
-  constructor(quest, answers, multi = '', open = '') {
+  constructor(quest, answers, type) {
     this.quest = quest; // Single string
     this.answers = answers; // Array fo answers
-    if (multi) {
-      this.multi = multi;
-    }
-    if (open) {
-      this.open;
-    }
+    this.type = type;
   }
 
   outAnsw() {
@@ -19,12 +14,6 @@ class Quest {
     }
     out += '*** \n';
     return out;
-  }
-}
-
-class QuestOpen {
-  constructor(quest) {
-    this.quest;
   }
 }
 

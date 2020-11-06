@@ -4,7 +4,7 @@ require('dotenv').config();
 
 const PREFIX = process.env.prefix;
 
-const router = (message) => {
+const router = (message, client) => {
   const args = message.content.slice(PREFIX.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
   if (command === 'ping') {
@@ -13,6 +13,10 @@ const router = (message) => {
 
   if (command === 'testportal') {
     testportal(message, args);
+  }
+  if(command === 'logout'){
+    client.destroy() 
+    process.exit(0)
   }
 };
 

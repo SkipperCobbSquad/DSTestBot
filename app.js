@@ -13,7 +13,7 @@ client.on('ready', () => {
 
 client.on('message', (message) => {
   if (!message.content.startsWith(PREFIX)) return;
-  router(message);
+  router(message, client);
 });
 
 client.login(TOKEN);

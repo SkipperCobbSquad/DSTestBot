@@ -30,36 +30,49 @@ const portal = async (pageson) => {
     for (let i = 1; i <= much; i++) {
       await page.waitForSelector('.question-container');
       const result = await page.evaluate(() => {
-        let res = {}
+        let res = {};
         let quest = '';
         const questBox = document.querySelector('.question-container').children;
         //Get type of quest
         const selector = questBox[1].value;
         //Get all p in section quest
-        questBox[3].querySelectorAll('p').forEach((p) => {
-          quest += `${p.textContent} `;
-        });
-        if (selector === 'DESCRIPTIVE') {
+        const allQP = questBox[3].querySelectorAll('p');
+        if (allQP.length > 1) {
+          allQP.forEach((p) => {
+            quest += `${p.textContent} `;
+          });
+        } else {
+          quest += `${allQP[0].textContent}`;
+        }
+        if (selector === 'DESCRIPTIVE' || selector === 'SHORT_ANSWER') {
           res = { quest, selector };
         } else {
           const answers = [];
           const answBox = questBox[4].querySelectorAll('div .answer_container');
           for (const answ of answBox) {
             oneAnsw = '';
-            answ.querySelectorAll('p').forEach((p) => {
-              oneAnsw += ` ${p.textContent}`;
-            });
-            answers.push(oneAnsw);
+            allAP = answ.querySelectorAll('p');
+            if (allAP.length > 1) {
+              answ.querySelectorAll('p').forEach((p) => {
+                oneAnsw += `${p.textContent} `;
+              });
+              answers.push(oneAnsw);
+            } else {
+              oneAnsw += `${allAP[0].textContent}`;
+              answers.push(oneAnsw);
+            }
           }
           res = { quest, answers, selector };
         }
-        return res
+        return res;
       });
-      console.log(result)
+      // console.log(result);
+      results.push(result)
       await page.click('a');
     }
   } catch (err) {
     return await { results: [], error: err };
+    console.log(err)
   }
   await browser.close();
   console.log(results);
