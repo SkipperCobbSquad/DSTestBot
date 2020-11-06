@@ -1,12 +1,12 @@
 class Quest {
-  constructor(quest, answers, multi = '', open='') {
+  constructor(quest, answers, multi = '', open = '') {
     this.quest = quest; // Single string
     this.answers = answers; // Array fo answers
     if (multi) {
       this.multi = multi;
     }
-    if(open){
-      this.open
+    if (open) {
+      this.open;
     }
   }
 
@@ -19,6 +19,12 @@ class Quest {
     }
     out += '*** \n';
     return out;
+  }
+}
+
+class QuestOpen {
+  constructor(quest) {
+    this.quest;
   }
 }
 

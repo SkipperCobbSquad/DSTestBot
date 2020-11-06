@@ -48,8 +48,3 @@ const testportal = (msg, args) => {
 };
 
 module.exports = testportal;
-//`***${quest.answers.map((x, i) => `\`\`\` ${i+1}) ${x}\`\`\` `)}***\n`
-//rich-text-answer-container
-//tox tox-tinymce
-
-//DESCRIPTIVE

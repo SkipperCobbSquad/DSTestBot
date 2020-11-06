@@ -28,40 +28,41 @@ const portal = async (pageson) => {
     });
     console.log(much);
     for (let i = 1; i <= much; i++) {
-      await page.waitForSelector('form');
+      await page.waitForSelector('.question-container');
       const result = await page.evaluate(() => {
-        let pop = [];
-        document.querySelectorAll('p').forEach((p) => {
-          pop.push(p.textContent);
+        let res = {}
+        let quest = '';
+        const questBox = document.querySelector('.question-container').children;
+        //Get type of quest
+        const selector = questBox[1].value;
+        //Get all p in section quest
+        questBox[3].querySelectorAll('p').forEach((p) => {
+          quest += `${p.textContent} `;
         });
-        const open = document.querySelectorAll('.tox').length ? true : false;
-        if (open) {
-          return { pop, open };
+        if (selector === 'DESCRIPTIVE') {
+          res = { quest, selector };
         } else {
-          let multi = false;
-          const mult = document.querySelectorAll('.mdc-checkbox__background');
-          if (mult.length) {
-            multi = true;
+          const answers = [];
+          const answBox = questBox[4].querySelectorAll('div .answer_container');
+          for (const answ of answBox) {
+            oneAnsw = '';
+            answ.querySelectorAll('p').forEach((p) => {
+              oneAnsw += ` ${p.textContent}`;
+            });
+            answers.push(oneAnsw);
           }
-          return { pop, open, multi };
+          res = { quest, answers, selector };
         }
+        return res
       });
-      console.log(result.open)
-      if (result.open) {
-        results.push(new Quest(result.pop, [], open));
-      } else {
-        results.push(
-            new Quest(result.pop[0], result.pop.slice(1), result.multi)
-        );
-      }
+      console.log(result)
       await page.click('a');
-      // await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
     }
   } catch (err) {
     return await { results: [], error: err };
   }
   await browser.close();
-  console.log(results)
+  console.log(results);
   return await { results, error: false };
 };
 //score-section
@@ -69,3 +70,9 @@ const portal = async (pageson) => {
 //https://www.testportal.net/test.html?t=cVEnZJQWUtMA
 module.exports = portal;
 //TODO: try catch errors
+//SINGLE_ANSWER
+//TRUE_FALSE
+//SURVEY
+//DESCRIPTIVE
+//MULTI_ANSWER
+//SHORT_ANSWER
