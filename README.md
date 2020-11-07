@@ -47,7 +47,7 @@ To generate token for bot please follow this instruction provided by: [Discord.j
 > - All Text Permission
 > - All General Premissions **beside**:
 >   - **Administrator**
->   - **View Adit Log**
+>   - **View Audit Log**
 >   - **View Server Insights**
 
 #### 3. Install the Bot
@@ -70,7 +70,7 @@ prefix = "!"
 
 > **In line TOKEN paste your bot token from Discord**
 
-3. To run BOT just type into your terminal `npm start`
+3. To run BOT just type into your terminal `npm install` and after its finish type `npm start`
 >Rememeber you must be in path where files bot is.
 
 ---
