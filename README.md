@@ -8,11 +8,11 @@ What test we have?
 
 - testportal
 
-###Installation
+### Installation
 
 ---
 
-####1. First install **Node JS**
+#### 1. First install **Node JS**
 
 1. On **Windows** just go to https://nodejs.org/ and download **Current** version.
 2. On **Linux & MacOS X** we prefer NVM (Node Version Manager) just type into yout terminal:
@@ -27,7 +27,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh | bash
 nvm install node
 ```
 
-####2. Generate token for your Discord Bot
+#### 2. Generate token for your Discord Bot
 To generate token for bot please follow this instruction provided by: [Discord.js](https://discordjs.guide/preparations/setting-up-a-bot-application.html#creating-your-bot)
 
 > **! REMEMBER TO SET BOT PERMISONS WHEN YOU GENERATE LINK TO**:
