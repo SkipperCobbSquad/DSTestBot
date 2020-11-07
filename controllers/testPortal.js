@@ -66,21 +66,18 @@ const portal = async (pageson) => {
         }
         return res;
       });
-      // console.log(result);
-      results.push(result)
+      results.push(new Quest(result.quest, result?.answers, result.selector));
       await page.click('a');
     }
+    await browser.close();
+    
+    return await { results, error: false };
   } catch (err) {
     return await { results: [], error: err };
-    console.log(err)
+    console.log(err);
   }
-  await browser.close();
-  console.log(results);
-  return await { results, error: false };
 };
-//score-section
-// await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
-//https://www.testportal.net/test.html?t=cVEnZJQWUtMA
+
 module.exports = portal;
 //TODO: try catch errors
 //SINGLE_ANSWER
