@@ -73,13 +73,12 @@ const portal = async (pageson) => {
     
     return await { results, error: false };
   } catch (err) {
-    return await { results: [], error: err };
     console.log(err);
+    return await { results: [], error: err };
   }
 };
 
 module.exports = portal;
-//TODO: try catch errors
 //SINGLE_ANSWER
 //TRUE_FALSE
 //SURVEY

@@ -8,6 +8,10 @@ const TOKEN = process.env.TOKEN;
 const PREFIX = process.env.prefix;
 
 client.on('ready', () => {
+  if (client.user.username !== 'JarvisTestBot'){
+    client.user.setUsername('JarvisTestBot')
+  }
+  client.user.setPresence({activity: {name: 'TestPortal', type: 'WATCHING'},status: 'online'})
   console.log('I am ready!');
 });
 

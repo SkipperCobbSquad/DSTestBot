@@ -14,9 +14,9 @@ const router = (message, client) => {
   if (command === 'testportal') {
     testportal(message, args);
   }
-  if(command === 'logout'){
-    client.destroy() 
-    process.exit(0)
+  if (command === 'logout') {
+    client.destroy();
+    process.exit(0);
   }
 };
 

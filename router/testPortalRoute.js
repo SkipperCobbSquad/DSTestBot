@@ -5,7 +5,7 @@ const testportal = (msg, args) => {
     const { results, error } = await portal(args[0]);
     for (const result of results) {
       const ME = result.createME();
-      msg.channel.send(ME);
+      await msg.channel.send(ME);
     }
   })();
 };
