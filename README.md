@@ -1,5 +1,5 @@
 # Discord Test Bot by JarvisSystems
-
+## New engine is available [here](https://github.com/SkipperCobbSquad/Test-Getter-v2)
 ![Alt Text](assets/jarvis_systems.png)
 
 ---
@@ -16,6 +16,8 @@
 ---
 
 ### About
+!!! For people that copy or get inspiration from this code, please reference to this repo in your projects and leave star <3
+
 DSTestBOT is for everyone that want know about questions and possible answers before enter to test. At now our solution support **TestPortal** but in the future we want to add new test solutions. Pleas read [TODO](#todo) to see what we want to add :)
 
 ---
